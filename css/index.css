@@ -59,6 +59,8 @@ audio,canvas,video,progress{display:inline-block;}
 .tl{text-align: left;}
 .tc{text-align: center;}
 .tr{text-align: right;}
+.ul-li-none li{display: none;}
+.ul-li-none li.cur{display: block;}
 
 /*nav*/
 .nav{position: fixed; height: 0.70rem; background: rgba(0, 0, 0, 0.5); bottom: 0; z-index: 100; width: 100%; left: 0;}
@@ -68,7 +70,7 @@ audio,canvas,video,progress{display:inline-block;}
 .nav ul li i{display: block;position:relative;height:0.52rem;}
 .nav ul li em{position: absolute;left:50%;top:50%;transform:translate(-50%, -50%);-webkit-transform:translate(-50%, -50%);}
 .nav ul li:nth-of-type(1) em{background:url(../images/common/01.png) no-repeat;background-size:100% 100%;width:0.63rem;height:0.47rem;}
-.nav ul li.cur:nth-of-type(1) em{background:url(../images/common/02.png) no-repeat;background-size:100% 100%;}
+.nav ul li.cur:nth-of-type(1) em{background:url(:;background:url(../images/common/02.png) no-repeat;background-size:100% 100%;}
 .nav ul li:nth-of-type(2) em{background:url(../images/common/03.png) no-repeat;background-size:100% 100%;width:0.37rem;height:0.45rem;}
 .nav ul li.cur:nth-of-type(2) em{background:url(../images/common/04.png) no-repeat;background-size:100% 100%;}
 .nav ul li:nth-of-type(3) em{background:url(../images/common/05.png) no-repeat;background-size:100% 100%;width:0.55rem;height:0.49rem;}
@@ -79,9 +81,22 @@ audio,canvas,video,progress{display:inline-block;}
 /*common*/
 .preload{z-index: 999;background: url(../images/loading/loading.jpg) no-repeat;background-size: 100% 100%;}
 .preload .wanted{position: absolute; width:3.8rem;height:4.96rem;left:1.26rem;top:2.22rem;background:url(../images/loading/wanted.png) no-repeat; background-size:100% 100%;}
-.preload .loading-data{font-size: 0.38rem; line-height: 0.58rem; text-align: center; margin-top: 3.7rem; margin-left: 0.5rem;font-family: 'Brush Script Std';}
-.preload .cat{position: absolute;width:1.41rem;height:0.95rem;left: 0.72rem; top: -0.78rem;}
-.preload .gif{width:2.32rem;height:1.91rem;margin-top: 1.3rem; margin-left: 0.78rem;}
+.preload .loading-data{font-size: 0.38rem; line-height: 0.58rem; text-align: center; margin-top: 0.5rem; margin-left: 0.3rem;font-family: 'Brush Script Std';}
+.preload .cats li:nth-of-type(1){position: absolute;width:1.41rem;height:0.95rem;left: 2.1rem; top: 1.44rem;background: url(../images/loading/cat1.png) no-repeat;background-size:100% 100%;}
+.preload .cats li:nth-of-type(2){position: absolute;width:1.85rem;height:0.89rem;left: 2.02rem; top: 1.5rem;background: url(../images/loading/cat2.png) no-repeat;background-size:100% 100%;}
+.preload .cats li:nth-of-type(3){position: absolute;width:1.42rem;height:0.98rem;left: 2.1rem; top: 1.44rem;background: url(../images/loading/cat3.png) no-repeat;background-size:100% 100%;}
+.preload .cats li:nth-of-type(4){position: absolute;width:1.33rem;height:0.79rem;left: 2.1rem; top: 1.64rem;background: url(../images/loading/cat4.png) no-repeat;background-size:100% 100%;}
+
+.preload .girls{width:2.32rem;height:1.91rem;margin-top: 1.3rem; margin-left: 0.78rem;}
+.preload .girls li{width:2.32rem;height:1.91rem;}
+.preload .girls li:nth-of-type(1){background: url(../images/loading/girl1.png) no-repeat;background-size: 100% 100%;}
+.preload .girls li:nth-of-type(2){background: url(../images/loading/girl2.png) no-repeat;background-size: 100% 100%;}
+.preload .girls li:nth-of-type(3){background: url(../images/loading/girl3.png) no-repeat;background-size: 100% 100%;}
+.preload .girls li:nth-of-type(4){background: url(../images/loading/girl4.png) no-repeat;background-size: 100% 100%;}
+.preload .girls li:nth-of-type(5){background: url(../images/loading/girl5.png) no-repeat;background-size: 100% 100%;}
+.preload .girls li:nth-of-type(6){background: url(../images/loading/girl6.png) no-repeat;background-size: 100% 100%;}
+.preload .girls li:nth-of-type(7){background: url(../images/loading/girl7.png) no-repeat;background-size: 100% 100%;}
+
 .ani-scale{animation:scale 1.5s linear infinite alternate;-webkit-animation:scale 1.5s linear infinite alternate;}
 
 .g-doc, .wraper{height: 100%;}

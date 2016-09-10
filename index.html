@@ -28,9 +28,23 @@
     <!-- 图片预加载页面开始 -->
     <div id="Jpreload" class="preload pa-img hide">
         <img src="http://img0.pclady.com.cn/pclady/mdxy/1605/640.jpg" alt="" title="" style="opacity:0;">
+        <ul class="cats ul-li-none">
+            <li class="cat status1 cur"></li>
+            <li class="cat status2"></li>
+            <li class="cat status3"></li>
+            <li class="cat status4"></li>
+        </ul>
         <div class="wanted">
-            <img src="images/loading/gif.png" class="gif" alt="">
-            <img src="images/loading/cat.png" class="cat" alt="">
+            <ul class="girls ul-li-none">
+                <li class="girl girl1 cur"></li>
+                <li class="girl girl2"></li>
+                <li class="girl girl3"></li>
+                <li class="girl girl4"></li>
+                <li class="girl girl5"></li>
+                <li class="girl girl6"></li>
+                <li class="girl girl7"></li>
+            </ul>
+            <!-- <img src="images/loading/cat.png" class="cat" alt=""> -->
             <div class="loading-data">0%</div>
         </div>
     </div>
@@ -133,7 +147,40 @@
                 wx.onMenuShareWeibo(shareData);// 监听“分享到微博”按钮点击、自定义分享内容及分享结果接口
             });
         },
-        usePreload: false
+        process: function (options) {
+            var length = options.srcs.length,
+                percent = Math.ceil((options.loadingCount / length) * 100),
+                loadingData = document.querySelector(".loading-data");
+
+            if(loadingData) {
+                loadingData.innerHTML = percent + "%";
+            }
+
+            clearInterval(this.catTimer);
+
+            var catIndex = 0,
+                cats = document.querySelector('.cats'), 
+                cat = cats.querySelectorAll('.cat');
+
+            this.catTimer = setInterval(function () {
+                cats.querySelector('.cur').classList.remove('cur');
+                (cat.item(++catIndex) || cat.item(catIndex = 0)).classList.add('cur');
+            }, 500);
+
+            var girlIndex = 0,
+                girls = document.querySelector('.girls'), 
+                girl = girls.querySelectorAll('.girl');
+
+            this.girlTimer = setInterval(function () {
+                girls.querySelector('.cur').classList.remove('cur');
+                (girl.item(++girlIndex) || girl.item(girlIndex = 0)).classList.add('cur');
+            }, 500);
+        },  
+        useMusic: false,
+        next: function () {
+            clearInterval(this.catTimer);
+            clearInterval(this.girlTimer);
+        }
     }
 
     config.page = {
