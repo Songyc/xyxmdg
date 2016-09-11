@@ -1,0 +1,71 @@
+enrollist({
+	"school": "首都经济贸易大学",
+	"count": 21,
+	"status": 2,
+	"code": 1,
+	"enrolls": [{
+		"createTime": 1459154594000,
+		"rank": 1,
+		"phone": "13622738390",
+		"updateTime": 1459155199000,
+		"remark": "change",
+		"name": "吴研华",
+		"votes": 232,
+		"ispass": 1,
+		"schoolId": 31,
+		"photo": "http://img.pclady.com.cn/images/upload/upc/tx/play/1603/28/c0/19707457_1459154560460.jpg",
+		"enrollId": 179
+	},
+	{
+		"createTime": 1459154594000,
+		"rank": 1,
+		"phone": "13622738390",
+		"updateTime": 1459155199000,
+		"remark": "change",
+		"name": "吴研华",
+		"votes": 232,
+		"ispass": 1,
+		"schoolId": 31,
+		"photo": "http://img.pclady.com.cn/images/upload/upc/tx/play/1603/28/c0/19707457_1459154560460.jpg",
+		"enrollId": 179
+	},
+	{
+		"createTime": 1459154594000,
+		"rank": 1,
+		"phone": "13622738390",
+		"updateTime": 1459155199000,
+		"remark": "change",
+		"name": "吴研华",
+		"votes": 232,
+		"ispass": 1,
+		"schoolId": 31,
+		"photo": "http://img.pclady.com.cn/images/upload/upc/tx/play/1603/28/c0/19707457_1459154560460.jpg",
+		"enrollId": 179
+	},
+	{
+		"createTime": 1459154594000,
+		"rank": 1,
+		"phone": "13622738390",
+		"updateTime": 1459155199000,
+		"remark": "change",
+		"name": "吴研华",
+		"votes": 232,
+		"ispass": 1,
+		"schoolId": 31,
+		"photo": "http://img.pclady.com.cn/images/upload/upc/tx/play/1603/28/c0/19707457_1459154560460.jpg",
+		"enrollId": 179
+	},
+	{
+		"createTime": 1459154594000,
+		"rank": 1,
+		"phone": "13622738390",
+		"updateTime": 1459155199000,
+		"remark": "change",
+		"name": "吴研华",
+		"votes": 232,
+		"ispass": 1,
+		"schoolId": 31,
+		"photo": "http://img.pclady.com.cn/images/upload/upc/tx/play/1603/28/c0/19707457_1459154560460.jpg",
+		"enrollId": 179
+	}]
+});

@@ -28,21 +28,21 @@
     <!-- 图片预加载页面开始 -->
     <div id="Jpreload" class="preload pa-img hide">
         <img src="http://img0.pclady.com.cn/pclady/mdxy/1605/640.jpg" alt="" title="" style="opacity:0;">
-        <ul class="cats ul-li-none">
-            <li class="cat status1 cur"></li>
-            <li class="cat status2"></li>
-            <li class="cat status3"></li>
-            <li class="cat status4"></li>
+        <ul class="cats ul-li-none interval-animation">
+            <li class="cur"></li>
+            <li></li>
+            <li></li>
+            <li></li>
         </ul>
         <div class="wanted">
-            <ul class="girls ul-li-none">
-                <li class="girl girl1 cur"></li>
-                <li class="girl girl2"></li>
-                <li class="girl girl3"></li>
-                <li class="girl girl4"></li>
-                <li class="girl girl5"></li>
-                <li class="girl girl6"></li>
-                <li class="girl girl7"></li>
+            <ul class="girls ul-li-none interval-animation">
+                <li class="cur"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
             </ul>
             <!-- <img src="images/loading/cat.png" class="cat" alt=""> -->
             <div class="loading-data">0%</div>
@@ -55,41 +55,295 @@
         
     </div>
     <div class="wraper">
-        <div class="swiper-container">
+        <div class="swiper-container swiper-container1">
             <div class="swiper-wrapper">
 
                 <!-- 第一屏 -->
-                <div class="swiper-slide m-item m-item1">
-                    <div class="masker"></div>
-                    <img data-src="images/p1/01.png" class="img1 swiper-lazy" alt="">
-                    <img data-src="images/common/nextPage.png" class="nextPage swiper-lazy" alt="">
+                <div class="swiper-slide m-item m-item1 swiper-lazy" data-background="images/common/bg.jpg">
+                    <img data-src="images/p1/title.png" class="title swiper-lazy" alt="">
+                    <img data-src="images/p1/line.png" class="line swiper-lazy" alt="">
+                    <ul class="ul-li-none magnifiers interval-animation">
+                        <li class="cur swiper-lazy" data-background="images/p1/magnifier01.png"></li>
+                        <li class="swiper-lazy" data-background="images/p1/magnifier02.png"></li>
+                        <li class="swiper-lazy" data-background="images/p1/magnifier03.png"></li>
+                    </ul>
+                    
+                    <div class="girl swiper-lazy" data-background="images/p1/girl.png">
+                        <ul class="ul-li-none cats interval-animation">
+                            <li class="swiper-lazy cur" data-background="images/p1/cat01.png"></li>
+                            <li class="swiper-lazy" data-background="images/p1/cat02.png"></li>
+                            <li class="swiper-lazy" data-background="images/p1/cat03.png"></li>
+                        </ul>
+                    </div>
+                    <!-- <img data-src="images/common/nextPage.png" class="nextPage swiper-lazy" alt=""> -->
                 </div>
                 <!-- /第一屏 -->
                 
                 <!-- 第二屏 -->
-                <div class="swiper-slide m-item m-item2">
-                    <div class="open">
-                        open
+                <div class="swiper-slide m-item m-item2 swiper-lazy" data-background="images/common/bg.jpg">
+                    <img data-src="images/p2/title.png" class="title swiper-lazy" alt="">
+                    <p class="back-to-see">往期回顾</p>
+                    <div class="sort-search clearfix">
+                        <div class="sort">
+                            排序: 
+                            <span class="human">人气</span>
+                            <span class="recent">最新</span>
+                        </div>
+                        <input type="text" class="search" placeholder="搜索摩登Girl的名字"></input>
+                        <span class="search-icon swiper-lazy" data-background="images/p2/search.png" id="search"></span>
                     </div>
-                    <div class="masker masker-bg">
-                        <div class="masker-container">
-                            <li> 
-                                <div class="close">
-                                    close
+                    <div class="swiper-container swiper-container2">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="item">
+                                    <div class="pic">
+                                        <img  data-src="images/p2/01.jpg" class="swiper-lazy" alt="">
+                                        <p class="md-girl">
+                                            摩登Girl NO.<span>007</span>
+                                        </p>
+                                    </div>
+                                    <div class="info vote-box">
+                                        <div class="name">牛泽萌</div>
+                                        <i class="vote"></i>
+                                        <span class="number">502225</span>
+                                    </div>
                                 </div>
-                            </li>
-                            <li>
-                                2
-                            </li>
+                                <div class="item">
+                                    <div class="pic">
+                                        <img  data-src="images/p2/01.jpg" class="swiper-lazy" alt="">
+                                        <p class="md-girl">
+                                            摩登Girl NO.<span>007</span>
+                                        </p>
+                                    </div>
+                                    <div class="info vote-box">
+                                        <div class="name">牛泽萌</div>
+                                        <i class="vote"></i>
+                                        <span class="number">502225</span>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pic">
+                                        <img  data-src="images/p2/01.jpg" class="swiper-lazy" alt="">
+                                        <p class="md-girl">
+                                            摩登Girl NO.<span>007</span>
+                                        </p>
+                                    </div>
+                                    <div class="info vote-box">
+                                        <div class="name">牛泽萌</div>
+                                        <i class="vote"></i>
+                                        <span class="number">502225</span>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pic">
+                                        <img  data-src="images/p2/01.jpg" class="swiper-lazy" alt="">
+                                        <p class="md-girl">
+                                            摩登Girl NO.<span>007</span>
+                                        </p>
+                                    </div>
+                                    <div class="info vote-box">
+                                        <div class="name">牛泽萌</div>
+                                        <i class="vote"></i>
+                                        <span class="number">502225</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="item">
+                                    <div class="pic">
+                                        <img  data-src="images/p2/01.jpg" class="swiper-lazy" alt="">
+                                        <p class="md-girl">
+                                            摩登Girl NO.<span>007</span>
+                                        </p>
+                                    </div>
+                                    <div class="info vote-box">
+                                        <div class="name">牛泽萌</div>
+                                        <i class="vote"></i>
+                                        <span class="number">502225</span>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pic">
+                                        <img  data-src="images/p2/01.jpg" class="swiper-lazy" alt="">
+                                        <p class="md-girl">
+                                            摩登Girl NO.<span>007</span>
+                                        </p>
+                                    </div>
+                                    <div class="info vote-box">
+                                        <div class="name">牛泽萌</div>
+                                        <i class="vote"></i>
+                                        <span class="number">502225</span>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pic">
+                                        <img  data-src="images/p2/01.jpg" class="swiper-lazy" alt="">
+                                        <p class="md-girl">
+                                            摩登Girl NO.<span>007</span>
+                                        </p>
+                                    </div>
+                                    <div class="info vote-box">
+                                        <div class="name">牛泽萌</div>
+                                        <i class="vote"></i>
+                                        <span class="number">502225</span>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pic">
+                                        <img  data-src="images/p2/01.jpg" class="swiper-lazy" alt="">
+                                        <p class="md-girl">
+                                            摩登Girl NO.<span>007</span>
+                                        </p>
+                                    </div>
+                                    <div class="info vote-box">
+                                        <div class="name">牛泽萌</div>
+                                        <i class="vote"></i>
+                                        <span class="number">502225</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <img data-src="images/p1/01.png" class="img1 swiper-lazy" alt="">
-                    <img data-src="images/common/nextPage.png" class="nextPage swiper-lazy" alt="">
+                    <div class="swiper-button-next swiper-lazy" data-background="images/p2/next.png"></div>
+                    <div class="swiper-button-prev swiper-lazy" data-background="images/p2/prev.png"></div>  
+    
+                    <div class="back swiper-lazy" data-background="images/p2/back.png">
+                        <i class="swiper-lazy" data-background="images/p2/01.png"></i>
+                    </div>
+
+                    <div class="pageNumber">1/1</div>
+
+                    <div class="masker swiper-lazy transition" data-background="images/common/bg.jpg">
+                        <div class="masker-bg swiper-lazy" data-background="images/p2/bg.png">
+                            <div class="small-back swiper-lazy" data-background="images/p2/05.png"></div>
+                            <div class="share swiper-lazy" data-background="images/p2/share.png"></div>
+                            <div class="vote-box">
+                                点赞投票
+                                <span class="number">502222</span>
+                                <i class="vote"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- /第二屏 -->
                 
+                <!-- 第三屏 -->
+                <div class="swiper-slide m-item m-item3">
+                    <div class="swiper-container3">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="bg conversation swiper-lazy" data-background="images/p3/bg1.jpg">
+                                    <img data-src="images/p3/01.png" class="c1 swiper-lazy" alt="">
+                                    <img data-src="images/p3/02.png" class="c2 swiper-lazy" alt="">
+                                    <img data-src="images/p3/03.png" class="c3 swiper-lazy" alt="">
+                                    <img data-src="images/p3/04.png" class="c4 swiper-lazy" alt="">
+                                    <img data-src="images/p3/05.png" class="c5 swiper-lazy" alt="">
+                                    <img data-src="images/p3/06.png" class="c6 swiper-lazy" alt="">
+                                    <img data-src="images/p3/07.png" class="c7 swiper-lazy" alt="">
+                                    <img data-src="images/p3/08.png" class="c8 swiper-lazy" alt="">
+                                </div>
+
+                                <div class="bg rule swiper-lazy" data-background="images/p3/bg2.jpg">
+                                    <ul>
+                                        <li>
+                                            1.点击我要报名，上传照片，提交资料后，我们将为你自动生成个人主页，发布在全国高校摩登Girl活动页面； 
+                                        </li>
+                                        <li>
+                                            2.参加活动后，摩登Girl可向好友发起投票邀请；也可以按照提示生成照片的形式，把带有个人主页二维码的照片发给好友，这样更容易拉到票哦。
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="bg awardy swiper-lazy" data-background="images/p3/bg3.jpg">
+                                    <ul>
+                                        <li>
+                                            时尚大牌精美护肤礼盒一套(Innisfree、IOPE等） 
+                                        </li>
+                                        <li>
+                                           成为摩登学院储备达人，优秀者可直接晋级摩登学院达人，给予摩登达人身份认证
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="bg benefity swiper-lazy" data-background="images/p3/bg4.jpg">
+                                    <ul>
+                                        <li>
+                                            各种大牌美容产品免费用 
+                                        </li>
+                                        <li>
+                                           赠送大牌产品写试用，轻松赚丰厚稿费
+                                        </li>
+                                        <li>
+                                           晋级PCLADY签约候选达人、专业明星
+                                        </li>
+                                        <li>
+                                           级定制包装、商务合作提名机会
+                                        </li>
+                                        <li>
+                                           优质资源推荐
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="bg report swiper-lazy" data-background="images/p3/bg5.jpg">
+                                    <ul>
+                                        <li>
+                                            以<span>#摩登通缉令#</span>为话题转发此活动， 
+                                        </li>
+                                        <li>
+                                           集赞38个，10月14号前截图发至
+                                        </li>
+                                        <li>
+                                           摩登课堂公众号（pcmodern），
+                                        </li>
+                                        <li>
+                                           回复<span class="fs-30">摩登通缉令，</span>
+                                        </li>
+                                        <li>
+                                           有机会获得<span class="fs-30">Innisfree小绿瓶。</span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="bg warm-tips swiper-lazy" data-background="images/p3/bg6.jpg">
+                                    <ul>
+                                        <li>
+                                            <span>1. </span>
+                                            <p>参赛选手不得盗用他人照片参赛，引起法律纠纷自行负责。</p>
+                                        </li>
+                                        <li>
+                                            <span>2. </span>
+                                            <p>如果赛区中最高分数出现并列的情况则取活动阶段结束前后台记录的最先达到最高分数的选手为第一名，以此类推。</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add Scroll Bar -->
+                        <div class="swiper-scrollbar"></div>
+                    </div>
+                </div>
+                <!-- /第三屏 -->
+
+                <!-- 第四屏 -->
+                <div class="swiper-slide m-item m-item4 swiper-lazy" data-background="images/common/bg.jpg">
+                    
+                </div>
+                <!-- /第四屏 -->
             </div>
             <div class="swiper-pagination"></div>
+        </div>
+        
+        <div class="tips">
+            <ul class="ul-li-none">
+                <li class="vote-li">
+                    <i class="vote"></i>
+                    <p>点赞成功</p>
+                </li>
+                <li class="vote-to-top-li">
+                    今天的点赞已达上限，明天继续来支持她
+                </li>
+            </ul>
         </div>
 
         <!-- 右上角音乐开始 -->
@@ -127,8 +381,10 @@
 <script src="js/zepto.js"></script>
 <script src="js/mobile.js"></script>
 <script src="js/swiper.js"></script>
+<script src="js/intervalAnimation.js"></script>
 <script src="http://js.3conline.com/wap/common/wxApi.min.js" charset="utf-8" type="text/javascript" async="async"></script>
 <script>
+
 (function (window) {
 
     var config = {
@@ -156,61 +412,63 @@
                 loadingData.innerHTML = percent + "%";
             }
 
-            clearInterval(this.catTimer);
-
-            var catIndex = 0,
-                cats = document.querySelector('.cats'), 
-                cat = cats.querySelectorAll('.cat');
-
-            this.catTimer = setInterval(function () {
-                cats.querySelector('.cur').classList.remove('cur');
-                (cat.item(++catIndex) || cat.item(catIndex = 0)).classList.add('cur');
-            }, 500);
-
-            var girlIndex = 0,
-                girls = document.querySelector('.girls'), 
-                girl = girls.querySelectorAll('.girl');
-
-            this.girlTimer = setInterval(function () {
-                girls.querySelector('.cur').classList.remove('cur');
-                (girl.item(++girlIndex) || girl.item(girlIndex = 0)).classList.add('cur');
-            }, 500);
+            if(!this.hasSetAllIntervalAnimation) {
+                fn.setAllIntervalAnimation('.preload');
+                this.hasSetAllIntervalAnimation = true;
+            }
         },  
         useMusic: false,
         next: function () {
-            clearInterval(this.catTimer);
-            clearInterval(this.girlTimer);
-        }
+            fn.cleanAllIntervalAnimation('.preload');
+        },
+        make: true
     }
 
     config.page = {
         ".m-item1": {
             init: function () {
-                
+                fn.setAllIntervalAnimation(this.selector);
             },
             reset: function () {
-                
+                fn.cleanAllIntervalAnimation(this.selector);
             }
         },
         ".m-item2": {
             init: function () {
-                
+                fn.initSwiper2();
             }, 
-            reset: function () {
-
-            }
+            reset: function () {}
+        },
+        ".m-item3": {
+            init: function () {
+                if(!this.hasInitswiper3) {
+                    var swiper3 = new Swiper('.swiper-container3', {
+                        scrollbar: '.swiper-scrollbar',
+                        direction: 'vertical',
+                        slidesPerView: 'auto',
+                        mousewheelControl: true,
+                        freeMode: true
+                    });
+                    this.hasInitswiper3 = true;
+                    swiperList[2] = swiper3;
+                }
+            },
+            reset: function () {}
         }
     };
 
-    var wap = new Wap(config);
+    var wap = new Wap(config); 
 
+    // 导航
     $(document).delegate('.nav li', 'click', function (e) {
         $(this).siblings().removeClass('cur');
         $(this).addClass('cur');
     });
 })(this);
-
 </script>
+<script src="js/qrcode.js"></script>
+<script src="js/draw.js"></script>
+<script src="js/search.js"></script>
 <!-- /页面脚本区 -->
 <script>_submitIvyID();</script>
 </body>
