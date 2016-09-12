@@ -9,7 +9,19 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
 <script type="text/javascript">
 // 设置页面viewport && 基准rem
-(function(f,j){var i=document,d=window;var b=i.documentElement;var c;var h=i.querySelector('meta[name="viewport"]');var e="width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=no";if(h){h.setAttribute("content",e)}else{h=i.createElement("meta");h.setAttribute("name","viewport");h.setAttribute("content",e);if(b.firstElementChild){b.firstElementChild.appendChild(h)}else{var a=i.createElement("div");a.appendChild(h);i.write(a.innerHTML)}}function g(){var k=b.getBoundingClientRect().width;if(!j){j=640}if(k>j){k=j}var l=k*100/f;b.style.fontSize=l+"px"}g();d.addEventListener("resize",function(){clearTimeout(c);c=setTimeout(g,300)},false);d.addEventListener("pageshow",function(k){if(k.persisted){clearTimeout(c);c=setTimeout(g,300)}},false);if(i.readyState==="complete"){i.body.style.fontSize="16px"}else{i.addEventListener("DOMContentLoaded",function(k){i.body.style.fontSize="16px"},false)}})(640,640);
+// (function(f,j){var i=document,d=window;var b=i.documentElement;var c;var h=i.querySelector('meta[name="viewport"]');var e="width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=no";if(h){h.setAttribute("content",e)}else{h=i.createElement("meta");h.setAttribute("name","viewport");h.setAttribute("content",e);if(b.firstElementChild){b.firstElementChild.appendChild(h)}else{var a=i.createElement("div");a.appendChild(h);i.write(a.innerHTML)}}function g(){var k=b.getBoundingClientRect().width;if(!j){j=640}if(k>j){k=j}var l=k*100/f;b.style.fontSize=l+"px"}g();d.addEventListener("resize",function(){clearTimeout(c);c=setTimeout(g,300)},false);d.addEventListener("pageshow",function(k){if(k.persisted){clearTimeout(c);c=setTimeout(g,300)}},false);if(i.readyState==="complete"){i.body.style.fontSize="16px"}else{i.addEventListener("DOMContentLoaded",function(k){i.body.style.fontSize="16px"},false)}})(640,640);
+
+if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
+    var version = parseFloat(RegExp.$1);
+    if(version>2.3){
+        var phoneScale = parseInt(window.screen.width)/640;
+        document.write('<meta name="viewport" content="width=640, minimum-scale = '+ phoneScale +', maximum-scale = '+ phoneScale +', target-densitydpi=device-dpi">');
+    }else{
+        document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+    }
+}else{
+    document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi,minimal-ui">');
+}
 </script>
 <link rel="stylesheet" href="css/common.css" type="text/css">
 <link rel="stylesheet" href="css/index.css" type="text/css">
@@ -20,7 +32,7 @@
 
 <!-- 栏目计数器/文章计数器 -->
 <span class="spanclass">
-<script>document.body.insertBefore(document.createElement("script"),document.body.firstChild).src="http://count.pclady.com.cn/count.php?channel=1598&screen="+screen.width+"*"+screen.height+"&refer="+encodeURIComponent(document.referrer)+"&anticache="+new Date().getTime()+"&url="+encodeURIComponent(location.href) + '&from=cms';</script>
+<script>document.body.insertBefore(document.createElement("script"),document.body.firstChild).src="http://count.pclady.com.cn/count.php?channel=6218&screen="+screen.width+"*"+screen.height+"&refer="+encodeURIComponent(document.referrer)+"&anticache="+new Date().getTime()+"&url="+encodeURIComponent(location.href) + '&from=cms';</script>
 </span>
 
 <!-- 头部 -->
@@ -54,7 +66,7 @@
     <div class="header">
         
     </div>
-    <div class="wraper">
+    <div class="wraper hide">
         <div class="swiper-container swiper-container1">
             <div class="swiper-wrapper">
 
@@ -327,7 +339,73 @@
 
                 <!-- 第四屏 -->
                 <div class="swiper-slide m-item m-item4 swiper-lazy" data-background="images/common/bg.jpg">
-                    
+                    <img data-src="images/p4/title.png" class="title swiper-lazy" alt="">
+                    <ul class="ul-li-none">
+                        <li class="cur">
+                            <div class="clip-bg swiper-lazy" data-background="images/p4/clip-bg.png">
+                                <div class="clip-tips">
+                                    <img data-src="images/p4/face.png" class="swiper-lazy" alt="">快来秀出你美的让我窒息的照片吧
+                                </div>
+                                <div class="clip" id="clip">
+                                    <img src="images/p4/photo.jpg" data-isload="0" id="ppic" width="100%" height="100%" />
+                                </div>
+                            </div>
+                            <div class="w-btn clearfix">
+                                <div class="button bg-yellow fl">
+                                    <i></i>
+                                    <span>重选</span>
+                                </div>
+                                <div class="button bg-white fr">
+                                    <i></i>
+                                    <span>确定</span>
+                                </div>
+                            </div>
+
+                            <div class="upc" id="upc"> 
+                                <div class="upc-inner">
+                                    <!--加载资源-->
+                                    <div class="lazy_tip" id="lazy_tip"><span>1%</span><br> 载入中......</div>
+                                    <div class="lazy_cover"></div>
+                                    <div class="resource_lazy hide"></div>
+
+                                    <div class="pic_edit">
+
+                                        <div id="clipArea"></div>
+                                        <div class="ttype" id="ttype"></div>
+                                        <div class="ttips">双指旋转和双指缩放，<br>调整好后点击确定裁剪图片</div>
+                                        <button id="upload2" class="upc-btn">
+                                            <input type="file" id="file" style="opacity: 0;position: absolute; left:0; top:0; height:100%; width:100%" accept="image/*">选择
+                                        </button>
+                                        <button id="clipBtn"class="upc-btn">确定</button>
+                                        <button class="upc-btn" style="width: 84%;" id="cancel">取消</button>
+                                        <canvas id="myCanvas"></canvas>
+                                    </div>
+                                    <img src="" fileName="" id="hit">
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="fill swiper-lazy" data-background="images/p4/fill.png">
+                                <div class="pic">
+                                    <img src="" alt="">
+                                </div>
+                            </div>
+                            <div class="info form">
+                                <div class="name clearfix">
+                                    姓名：
+                                    <input type="text" placeholder="展示在你的个人页面">
+                                </div>
+                                <div class="phone clearfix">
+                                    手机：
+                                    <input type="text" placeholder="保密，仅作通知用途">
+                                </div>
+                                <div class="button bg-yellow">
+                                    <i></i>
+                                    <span>提交</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
                 <!-- /第四屏 -->
             </div>
@@ -342,6 +420,12 @@
                 </li>
                 <li class="vote-to-top-li">
                     今天的点赞已达上限，明天继续来支持她
+                </li>
+                <li class="phone-li">
+                    手机号码不对哦，不要失联好吗
+                </li>
+                <li class="success-li">
+                    报名成功，照片美爆了！
                 </li>
             </ul>
         </div>
@@ -378,10 +462,11 @@
     </div>
 </div>
 <!-- http://www.swiper.com.cn/api/callbacks/2014/1217/92.html -->
-<script src="js/zepto.js"></script>
+<script src="http://js.3conline.com/min/temp/v1/lib-jquery1.10.2.js"></script>
 <script src="js/mobile.js"></script>
 <script src="js/swiper.js"></script>
 <script src="js/intervalAnimation.js"></script>
+<script src="js/plus.js"></script>
 <script src="http://js.3conline.com/wap/common/wxApi.min.js" charset="utf-8" type="text/javascript" async="async"></script>
 <script>
 
@@ -454,6 +539,14 @@
                 }
             },
             reset: function () {}
+        },
+        ".m-item4": {
+            init: function () {
+                // wap.lock();
+            },
+            reset: function () {
+
+            }
         }
     };
 
@@ -463,7 +556,159 @@
     $(document).delegate('.nav li', 'click', function (e) {
         $(this).siblings().removeClass('cur');
         $(this).addClass('cur');
+
+        var index = $(this).index();
+        swiper.slideTo(index + 1);
     });
+
+    // 
+    $("#clip").click(function () {
+        $("#upc").show();
+    });
+
+    $("#cancel").on("touchstart",function(){
+        $("#upc").hide(); 
+    });
+
+    var body_width = $('body').width();
+    var body_height = $('body').height();
+  
+    $("#clipArea").photoClip({
+        width: body_width * 0.8,
+        height: body_width * 0.8,
+        file: "#file",
+        view: "#hit",
+        ok: "#clipBtn",
+        loadStart: function () {
+            //console.log("照片读取中");
+            $('.lazy_tip span').text('');
+            $('.lazy_cover,.lazy_tip').show();
+        },
+        loadComplete: function () {
+            //console.log("照片读取完成");
+            $('.lazy_cover,.lazy_tip').hide();
+        },
+        clipFinish: function (dataURL) {
+            $('#hit').attr('src', dataURL);
+            saveImageInfo();
+        }
+    });
+
+    //图片上传
+    function saveImageInfo() {
+        var filename = $('#hit').attr('fileName');
+        var img_data = $('#hit').attr('src');
+        if(img_data==""){alert('null');}
+        render(img_data);
+    }
+
+    function getWebsit(){
+        if (navigator.userAgent.toLowerCase().match(/micromessenger/i) != "micromessenger") return ;
+        var website;
+        switch (window.location.hostname.replace(/\w+((\.\w+)+)/, "$1")) {
+            case ".pconline.com.cn":
+            website = 'pconline';
+                break;
+            case ".pcauto.com.cn":
+            website = 'pcauto';
+                break;
+            case ".pclady.com.cn":
+            website = 'pclady';
+                break;
+            case ".pcbaby.com.cn":
+            website = 'pcbaby';
+                break;
+            case ".pcgames.com.cn":
+            website = 'pcgames';
+                break;
+            case ".pchouse.com.cn":
+            website = 'pchouse';
+                break;
+            default :
+            website = 'pconline'; //默认是电脑网，可能会导致上传失败。
+                break;
+        }
+        return website;
+    }
+
+    function dosuccess(dataurl){//生成base64后进行处理
+        var twebsite = getWebsit();
+        $('#upc').hide();
+        $("#ppic").attr('src',dataurl);
+        $.post("http://upc.pclady.com.cn/upload_quick_base64.jsp?referer=http://play10.pclady.com.cn/",{
+            application:'play',
+            readExif:'yes',
+            keepSrc:'yes',
+            website:twebsite,
+            data : dataurl
+        },function(data){
+            if(data.retCode<1){
+                var fnum = data.files.length;
+                if(fnum>0){//有返回图片再处理
+
+                    for(var i=0;i<fnum;i++){
+                        if(data.files[i].isorg==1){//取原图
+                            turlB = data.files[i].url;
+                            $("#ppic").attr('src',turlB);
+                            isdon = false;
+                            document.getElementById('ppic').src=turlB;
+                          //  document.getElementById('abc').innerHTML = '返回的图片URL是：'+turlB;
+                          $("#ppic").attr("data-isload",1);
+                            // document.getElementById('load-txt').style.display='none';
+                        }
+                    }
+                }
+            }else{
+                alert("上传失败，请重试！");
+            }
+        },"json");
+        document.getElementById('load-txt').style.display='none';
+    }
+
+    // 渲染 Image 缩放尺寸  
+    function render(src){  
+        var MAX_HEIGHT = 320;  //Image 缩放尺寸 
+        var MAX_WIDTH = 320; 
+        // 创建一个 Image 对象  
+        var image = new Image();  
+        
+        // 绑定 load 事件处理器，加载完成后执行  
+        image.onload = function(){  
+            // 获取 canvas DOM 对象 
+            var canvas = document.getElementById("myCanvas"); 
+
+            // 如果高度超标  
+            if(image.height > MAX_HEIGHT) {  
+                // 宽度等比例缩放 *=  
+                image.width *= MAX_HEIGHT / image.height;  
+                image.height = MAX_HEIGHT;  
+            } 
+            if(image.height > MAX_WIDTH) {  
+                // 宽度等比例缩放 *=  
+                image.width *= MAX_WIDTH / image.width;  
+                image.width = MAX_WIDTH;  
+            }   
+            // 获取 canvas的 2d 环境对象,  
+            // 可以理解Context是管理员，canvas是房子  
+            var ctx = canvas.getContext("2d");  
+            // canvas清屏  
+            ctx.clearRect(0, 0, canvas.width, canvas.height); 
+            canvas.width = image.width;        // 重置canvas宽高  
+            canvas.height = image.height;  
+            // 将图像绘制到canvas上  
+            ctx.drawImage(image, 0, 0, image.width, image.height);  
+            // !!! 注意，image 没有加入到 dom之中  
+            
+         var dataurl = canvas.toDataURL("image/jpeg");  
+         var imagedata =  encodeURIComponent(dataurl); 
+
+         dosuccess(dataurl);//成功后处理
+        };  
+        // 设置src属性，浏览器会自动加载。  
+        // 记住必须先绑定render()事件，才能设置src属性，否则会出同步问题。  
+        image.src = src;
+    };
+
 })(this);
 </script>
 <script src="js/qrcode.js"></script>

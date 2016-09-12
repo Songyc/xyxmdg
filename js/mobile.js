@@ -497,6 +497,7 @@
 					value, initCurrying, resetCurring;
 
 				this.target.classList.remove("hide");
+				this.target.style.display = 'block';
 				this.config = options;
 				this.page = options.page;
 				body.preload.target.classList.add("hide");

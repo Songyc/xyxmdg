@@ -39,9 +39,7 @@ $.extend(fn, {
 			context = canvas.getContext('2d');
 
 		this.drawText(context, '牛泽萌', 'No.007');
-		
 		this.drawPic(context);
-		// context.beginPath();
 	},
 
 	drawPic: function (context, obj) {
