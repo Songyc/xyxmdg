@@ -7,8 +7,15 @@
 
 参考资料:
 校园行摩登girl专题页面总览：http://192.168.33.174/201609moderngirl/index.html#p=
-预览地址: http://192.168.50.189/2016/2016.9/9.5/4/index.html
+预览地址: http://192.168.50.189/2016/2016.9/9.5/5/index.html
 大熊页面：http://www1.pclady.com.cn/wap/zt/gz20160318/prettygirl/index.html
 移动端上传图片：http://zzsvn.pcauto.com.cn/svn/other/ztlib/upload.html
 合成图片：http://192.168.50.198/Search/H5/canvas/canvas_combine_pic/hebingPic.html
 接口：http://192.168.51.166:8090/action/help.jsp
+
+http://192.168.51.173:8090/action/help.jsp
+
+接口：
+
+报名接口：http://192.168.51.173:8090/action/enroll.jsp
+投票接口：http://192.168.51.173:8090/action/vote.jsp

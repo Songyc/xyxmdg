@@ -1,6 +1,7 @@
 // 图片动画模块
-var fn = {};
-var intervalAnimationObject = {};
+var fn = {},
+    intervalAnimationObject = {},
+    swiperList = [];
 
 $.extend(fn, {
     cleanAllIntervalAnimation: function (pageSelector) {

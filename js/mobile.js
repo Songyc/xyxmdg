@@ -716,8 +716,18 @@
 			            lazyLoading : true,                 // 懒加载
 			            lazyLoadingInPrevNext: true,        // 按需懒加载
 			            onSlideChangeEnd: function () {
-			                var index = swiper.activeIndex;
+			                var index = swiper.activeIndex,
+			                	navIndex = 0;
 							fn.mapPage();
+
+							navIndex = index - 1;
+
+							if(navIndex < 0) {
+								navIndex = 0;
+							}
+
+							$("#nav li.cur").removeClass("cur");
+							$("#nav li").eq(navIndex).addClass("cur");
 			            }
 			        });
 					

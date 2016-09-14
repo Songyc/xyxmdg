@@ -5,12 +5,9 @@
 <title>移动模板</title>
 <meta name="keywords" content="关键字,关键字,关键字" />
 <meta name="description" content="描述。……" />
-<meta name="Author" content="songyingchun_gz design_gz">
+<meta name="Author" content="songyingchun_gz xuqian_gz">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
 <script type="text/javascript">
-// 设置页面viewport && 基准rem
-// (function(f,j){var i=document,d=window;var b=i.documentElement;var c;var h=i.querySelector('meta[name="viewport"]');var e="width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=no";if(h){h.setAttribute("content",e)}else{h=i.createElement("meta");h.setAttribute("name","viewport");h.setAttribute("content",e);if(b.firstElementChild){b.firstElementChild.appendChild(h)}else{var a=i.createElement("div");a.appendChild(h);i.write(a.innerHTML)}}function g(){var k=b.getBoundingClientRect().width;if(!j){j=640}if(k>j){k=j}var l=k*100/f;b.style.fontSize=l+"px"}g();d.addEventListener("resize",function(){clearTimeout(c);c=setTimeout(g,300)},false);d.addEventListener("pageshow",function(k){if(k.persisted){clearTimeout(c);c=setTimeout(g,300)}},false);if(i.readyState==="complete"){i.body.style.fontSize="16px"}else{i.addEventListener("DOMContentLoaded",function(k){i.body.style.fontSize="16px"},false)}})(640,640);
-
 if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
     var version = parseFloat(RegExp.$1);
     if(version>2.3){
@@ -61,7 +58,7 @@ if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
         </div>
     </div>
     <!-- 图片预加载页面结束 -->
-
+    
     <!-- header -->
     <div class="header">
         
@@ -94,146 +91,40 @@ if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
                 <!-- 第二屏 -->
                 <div class="swiper-slide m-item m-item2 swiper-lazy" data-background="images/common/bg.jpg">
                     <img data-src="images/p2/title.png" class="title swiper-lazy" alt="">
-                    <p class="back-to-see">往期回顾</p>
+                    <p class="back-to-see hide">往期回顾</p>
                     <div class="sort-search clearfix">
                         <div class="sort">
                             排序: 
-                            <span class="human">人气</span>
-                            <span class="recent">最新</span>
+                            <span class="human cur" data-type="0">人气</span>
+                            <span class="recent" data-type="1">最新</span>
                         </div>
                         <input type="text" class="search" placeholder="搜索摩登Girl的名字"></input>
                         <span class="search-icon swiper-lazy" data-background="images/p2/search.png" id="search"></span>
                     </div>
+                    <div id="qrcode" style="position:absolute;top:-9999px;"></div>
                     <div class="swiper-container swiper-container2">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="item">
-                                    <div class="pic">
-                                        <img  data-src="images/p2/01.jpg" class="swiper-lazy" alt="">
-                                        <p class="md-girl">
-                                            摩登Girl NO.<span>007</span>
-                                        </p>
-                                    </div>
-                                    <div class="info vote-box">
-                                        <div class="name">牛泽萌</div>
-                                        <i class="vote"></i>
-                                        <span class="number">502225</span>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="pic">
-                                        <img  data-src="images/p2/01.jpg" class="swiper-lazy" alt="">
-                                        <p class="md-girl">
-                                            摩登Girl NO.<span>007</span>
-                                        </p>
-                                    </div>
-                                    <div class="info vote-box">
-                                        <div class="name">牛泽萌</div>
-                                        <i class="vote"></i>
-                                        <span class="number">502225</span>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="pic">
-                                        <img  data-src="images/p2/01.jpg" class="swiper-lazy" alt="">
-                                        <p class="md-girl">
-                                            摩登Girl NO.<span>007</span>
-                                        </p>
-                                    </div>
-                                    <div class="info vote-box">
-                                        <div class="name">牛泽萌</div>
-                                        <i class="vote"></i>
-                                        <span class="number">502225</span>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="pic">
-                                        <img  data-src="images/p2/01.jpg" class="swiper-lazy" alt="">
-                                        <p class="md-girl">
-                                            摩登Girl NO.<span>007</span>
-                                        </p>
-                                    </div>
-                                    <div class="info vote-box">
-                                        <div class="name">牛泽萌</div>
-                                        <i class="vote"></i>
-                                        <span class="number">502225</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="item">
-                                    <div class="pic">
-                                        <img  data-src="images/p2/01.jpg" class="swiper-lazy" alt="">
-                                        <p class="md-girl">
-                                            摩登Girl NO.<span>007</span>
-                                        </p>
-                                    </div>
-                                    <div class="info vote-box">
-                                        <div class="name">牛泽萌</div>
-                                        <i class="vote"></i>
-                                        <span class="number">502225</span>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="pic">
-                                        <img  data-src="images/p2/01.jpg" class="swiper-lazy" alt="">
-                                        <p class="md-girl">
-                                            摩登Girl NO.<span>007</span>
-                                        </p>
-                                    </div>
-                                    <div class="info vote-box">
-                                        <div class="name">牛泽萌</div>
-                                        <i class="vote"></i>
-                                        <span class="number">502225</span>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="pic">
-                                        <img  data-src="images/p2/01.jpg" class="swiper-lazy" alt="">
-                                        <p class="md-girl">
-                                            摩登Girl NO.<span>007</span>
-                                        </p>
-                                    </div>
-                                    <div class="info vote-box">
-                                        <div class="name">牛泽萌</div>
-                                        <i class="vote"></i>
-                                        <span class="number">502225</span>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="pic">
-                                        <img  data-src="images/p2/01.jpg" class="swiper-lazy" alt="">
-                                        <p class="md-girl">
-                                            摩登Girl NO.<span>007</span>
-                                        </p>
-                                    </div>
-                                    <div class="info vote-box">
-                                        <div class="name">牛泽萌</div>
-                                        <i class="vote"></i>
-                                        <span class="number">502225</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="swiper-wrapper"></div>
                     </div>
+                    
                     <div class="swiper-button-next swiper-lazy" data-background="images/p2/next.png"></div>
                     <div class="swiper-button-prev swiper-lazy" data-background="images/p2/prev.png"></div>  
-    
-                    <div class="back swiper-lazy" data-background="images/p2/back.png">
-                        <i class="swiper-lazy" data-background="images/p2/01.png"></i>
-                    </div>
-
                     <div class="pageNumber">1/1</div>
-
                     <div class="masker swiper-lazy transition" data-background="images/common/bg.jpg">
                         <div class="masker-bg swiper-lazy" data-background="images/p2/bg.png">
                             <div class="small-back swiper-lazy" data-background="images/p2/05.png"></div>
-                            <div class="share swiper-lazy" data-background="images/p2/share.png"></div>
+                            <div class="shares interval-animation">
+                                <ul>
+                                    <li class="share swiper-lazy" data-background="images/p2/share.png"></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                            <!-- <div class="share swiper-lazy" ></div> -->
                             <div class="vote-box">
                                 点赞投票
                                 <span class="number">502222</span>
                                 <i class="vote"></i>
                             </div>
+                            <!-- <img src="" width="520" height="730" id="canvasPic" alt=""> -->
                         </div>
                     </div>
                 </div>
@@ -244,15 +135,34 @@ if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
                     <div class="swiper-container3">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <div class="bg conversation swiper-lazy" data-background="images/p3/bg1.jpg">
+                                <div class="bg img conversation swiper-lazy" data-background="images/p3/bg1.jpg">
                                     <img data-src="images/p3/01.png" class="c1 swiper-lazy" alt="">
                                     <img data-src="images/p3/02.png" class="c2 swiper-lazy" alt="">
                                     <img data-src="images/p3/03.png" class="c3 swiper-lazy" alt="">
                                     <img data-src="images/p3/04.png" class="c4 swiper-lazy" alt="">
-                                    <img data-src="images/p3/05.png" class="c5 swiper-lazy" alt="">
-                                    <img data-src="images/p3/06.png" class="c6 swiper-lazy" alt="">
-                                    <img data-src="images/p3/07.png" class="c7 swiper-lazy" alt="">
                                     <img data-src="images/p3/08.png" class="c8 swiper-lazy" alt="">
+                                    <div class="flashs interval-animation">
+                                        <ul>
+                                            <li>
+                                                <div class="star swiper-lazy" data-background="images/p3/star.png"></div>
+                                                <div class="w-girl">
+                                                    <img data-src="images/p3/09.png" class="c9 swiper-lazy" alt="">
+                                                    <img data-src="images/p3/10.png" class="c10 swiper-lazy" alt="">
+                                                    <img data-src="images/p3/11.png" class="c11 swiper-lazy" alt="">
+                                                    <img data-src="images/p3/beautify-girl.png" class="beautify-girl swiper-lazy" alt="">
+                                                    <img data-src="images/p3/05.png" class="c5 swiper-lazy" alt="">
+                                                </div>
+                                                
+                                                <div class="w-point">
+                                                    <img data-src="images/p3/06.png" class="c6 swiper-lazy" alt="">  
+                                                    <img data-src="images/p3/12.png" class="c12 swiper-lazy" alt="">
+                                                    <img data-src="images/p3/07.png" class="c7 swiper-lazy" alt="">          
+                                                </div>
+                                            </li>
+                                            <li></li>
+                                        </ul>
+                                    </div>
+                                    <img data-src="images/p3/13.png" class="c13 swiper-lazy" alt="">
                                 </div>
 
                                 <div class="bg rule swiper-lazy" data-background="images/p3/bg2.jpg">
@@ -351,11 +261,11 @@ if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
                                 </div>
                             </div>
                             <div class="w-btn clearfix">
-                                <div class="button bg-yellow fl">
+                                <div class="button bg-yellow fl" id="JreChose">
                                     <i></i>
                                     <span>重选</span>
                                 </div>
-                                <div class="button bg-white fr">
+                                <div class="button bg-white fr button-disabled" id="Jconfirm">
                                     <i></i>
                                     <span>确定</span>
                                 </div>
@@ -387,7 +297,7 @@ if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
                         <li>
                             <div class="fill swiper-lazy" data-background="images/p4/fill.png">
                                 <div class="pic">
-                                    <img src="" alt="">
+                                    <img src="" id="Jhead" alt="">
                                 </div>
                             </div>
                             <div class="info form">
@@ -399,7 +309,7 @@ if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
                                     手机：
                                     <input type="text" placeholder="保密，仅作通知用途">
                                 </div>
-                                <div class="button bg-yellow">
+                                <div class="button bg-yellow" id="Jcommit">
                                     <i></i>
                                     <span>提交</span>
                                 </div>
@@ -408,6 +318,40 @@ if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
                     </ul>
                 </div>
                 <!-- /第四屏 -->
+
+                <!-- 第五屏 -->
+                <div class="swiper-slide m-item m-item5 swiper-lazy" data-background="images/common/bg.jpg">
+                    <div class="broad swiper-lazy" data-background="images/p2/bg.png">
+                        <div class="window">
+                            <div class="swiper-container4">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img class="bg swiper-lazy" data-src="images/p5/bg1.jpg">
+                                        <img class="bg swiper-lazy" data-src="images/p5/bg2.jpg">
+                                        <img class="bg swiper-lazy" data-src="images/p5/bg3.jpg">
+                                        <img class="bg swiper-lazy" data-src="images/p5/bg4.jpg">
+                                        <img class="bg swiper-lazy" data-src="images/p5/bg5.jpg">
+                                        <img class="bg swiper-lazy" data-src="images/p5/bg6.jpg">
+                                        <img class="bg swiper-lazy" data-src="images/p5/bg7.jpg">
+                                    </div>
+                                </div>
+                                <!-- Add Scroll Bar -->
+                                <div class="swiper-scrollbar"></div>
+                            </div>
+                        </div>
+                        <div class="team swiper-lazy" data-background="images/p5/team.png">
+                            <ul class="clearfix">
+                                <li>监制/肖娜</li>
+                                <li>统筹/司万利</li>
+                                <li>编辑/谢静霞</li>
+                                <li>设计/许倩</li>
+                                <li>前端/宋颖纯</li>
+                                <li>PCLADY摩登课堂出品</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- /第五屏 -->
             </div>
             <div class="swiper-pagination"></div>
         </div>
@@ -416,16 +360,13 @@ if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
             <ul class="ul-li-none">
                 <li class="vote-li">
                     <i class="vote"></i>
-                    <p>点赞成功</p>
+                    <p></p>
                 </li>
-                <li class="vote-to-top-li">
-                    今天的点赞已达上限，明天继续来支持她
+                <li class="search-li">
+                    <p></p>
                 </li>
                 <li class="phone-li">
-                    手机号码不对哦，不要失联好吗
-                </li>
-                <li class="success-li">
-                    报名成功，照片美爆了！
+                    <p></p>
                 </li>
             </ul>
         </div>
@@ -439,7 +380,7 @@ if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
         </div>
         <!-- 右上角音乐结束 -->
 
-        <div class="nav">
+        <div class="nav" id="nav">
             <ul class="clearfix">
                 <li class="cur">
                     <i><em></em></i>
@@ -465,8 +406,11 @@ if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
 <script src="http://js.3conline.com/min/temp/v1/lib-jquery1.10.2.js"></script>
 <script src="js/mobile.js"></script>
 <script src="js/swiper.js"></script>
+<!-- 图片动画模块intervalAnimation.js -->   
 <script src="js/intervalAnimation.js"></script>
-<script src="js/plus.js"></script>
+<!-- 接口interface.js -->
+<script src="js/interface.js"></script>  
+
 <script src="http://js.3conline.com/wap/common/wxApi.min.js" charset="utf-8" type="text/javascript" async="async"></script>
 <script>
 
@@ -505,8 +449,7 @@ if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
         useMusic: false,
         next: function () {
             fn.cleanAllIntervalAnimation('.preload');
-        },
-        make: true
+        }
     }
 
     config.page = {
@@ -526,26 +469,73 @@ if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
         },
         ".m-item3": {
             init: function () {
-                if(!this.hasInitswiper3) {
-                    var swiper3 = new Swiper('.swiper-container3', {
-                        scrollbar: '.swiper-scrollbar',
+                var self = this;
+                // if(!this.hasInitswiper3) {
+                var swiper3 = new Swiper('.swiper-container3', {
+                    scrollbar: '.swiper-container3 .swiper-scrollbar',
+                    direction: 'vertical',
+                    slidesPerView: 'auto',
+                    mousewheelControl: true,
+                    freeMode: true,
+                    onTouchEnd: function () {
+                        if(swiper3.isBeginning) {
+                            swiper.slidePrev();
+                        }
+
+                        if(swiper3.isEnd) {
+                            swiper.slideNext();
+                        }
+                    }
+                });
+                    // this.hasInitswiper3 = true;
+                swiperList[2] = swiper3;
+                // }
+                this.swiper3 = swiper3;
+                clearTimeout(this.timer);
+                this.timer = setTimeout(function () {
+                    fn.setAllIntervalAnimation(self.selector);
+                }, 3000);
+            },
+            reset: function () {
+                clearTimeout(this.timer);
+                if(this.swiper3 && this.swiper3.destroy) {
+                    this.swiper3.destroy(true, true);
+                    this.swiper3 = null;
+                }
+                fn.cleanAllIntervalAnimation(this.selector);
+                document.querySelector(".flashs li").classList.remove("cur");
+            }
+        },
+        ".m-item4": {
+            init: function () {
+                if(!this.hasInit) {
+                    fn.clip();
+                    this.hasInit = true;
+                }
+            },
+            reset: function () {}
+        },
+        ".m-item5": {
+            init: function () {
+                // if(!this.hasInitswiper4) {
+                    var swiper4 = new Swiper('.swiper-container4', {
+                        scrollbar: '.swiper-container4 .swiper-scrollbar',
                         direction: 'vertical',
                         slidesPerView: 'auto',
                         mousewheelControl: true,
                         freeMode: true
                     });
-                    this.hasInitswiper3 = true;
-                    swiperList[2] = swiper3;
-                }
-            },
-            reset: function () {}
-        },
-        ".m-item4": {
-            init: function () {
-                // wap.lock();
+
+                    // this.hasInitswiper4 = true;
+                    swiperList[3] = swiper4;
+                    this.swiper4 = swiper4;
+                // }
             },
             reset: function () {
-
+                if(this.swiper4 && this.swiper4.destroy) {
+                    this.swiper4.destroy(true, true);
+                    this.swiper4 = null;
+                }
             }
         }
     };
@@ -558,162 +548,17 @@ if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
         $(this).addClass('cur');
 
         var index = $(this).index();
+        swiper.unlockSwipes();
         swiper.slideTo(index + 1);
     });
-
-    // 
-    $("#clip").click(function () {
-        $("#upc").show();
-    });
-
-    $("#cancel").on("touchstart",function(){
-        $("#upc").hide(); 
-    });
-
-    var body_width = $('body').width();
-    var body_height = $('body').height();
-  
-    $("#clipArea").photoClip({
-        width: body_width * 0.8,
-        height: body_width * 0.8,
-        file: "#file",
-        view: "#hit",
-        ok: "#clipBtn",
-        loadStart: function () {
-            //console.log("照片读取中");
-            $('.lazy_tip span').text('');
-            $('.lazy_cover,.lazy_tip').show();
-        },
-        loadComplete: function () {
-            //console.log("照片读取完成");
-            $('.lazy_cover,.lazy_tip').hide();
-        },
-        clipFinish: function (dataURL) {
-            $('#hit').attr('src', dataURL);
-            saveImageInfo();
-        }
-    });
-
-    //图片上传
-    function saveImageInfo() {
-        var filename = $('#hit').attr('fileName');
-        var img_data = $('#hit').attr('src');
-        if(img_data==""){alert('null');}
-        render(img_data);
-    }
-
-    function getWebsit(){
-        if (navigator.userAgent.toLowerCase().match(/micromessenger/i) != "micromessenger") return ;
-        var website;
-        switch (window.location.hostname.replace(/\w+((\.\w+)+)/, "$1")) {
-            case ".pconline.com.cn":
-            website = 'pconline';
-                break;
-            case ".pcauto.com.cn":
-            website = 'pcauto';
-                break;
-            case ".pclady.com.cn":
-            website = 'pclady';
-                break;
-            case ".pcbaby.com.cn":
-            website = 'pcbaby';
-                break;
-            case ".pcgames.com.cn":
-            website = 'pcgames';
-                break;
-            case ".pchouse.com.cn":
-            website = 'pchouse';
-                break;
-            default :
-            website = 'pconline'; //默认是电脑网，可能会导致上传失败。
-                break;
-        }
-        return website;
-    }
-
-    function dosuccess(dataurl){//生成base64后进行处理
-        var twebsite = getWebsit();
-        $('#upc').hide();
-        $("#ppic").attr('src',dataurl);
-        $.post("http://upc.pclady.com.cn/upload_quick_base64.jsp?referer=http://play10.pclady.com.cn/",{
-            application:'play',
-            readExif:'yes',
-            keepSrc:'yes',
-            website:twebsite,
-            data : dataurl
-        },function(data){
-            if(data.retCode<1){
-                var fnum = data.files.length;
-                if(fnum>0){//有返回图片再处理
-
-                    for(var i=0;i<fnum;i++){
-                        if(data.files[i].isorg==1){//取原图
-                            turlB = data.files[i].url;
-                            $("#ppic").attr('src',turlB);
-                            isdon = false;
-                            document.getElementById('ppic').src=turlB;
-                          //  document.getElementById('abc').innerHTML = '返回的图片URL是：'+turlB;
-                          $("#ppic").attr("data-isload",1);
-                            // document.getElementById('load-txt').style.display='none';
-                        }
-                    }
-                }
-            }else{
-                alert("上传失败，请重试！");
-            }
-        },"json");
-        document.getElementById('load-txt').style.display='none';
-    }
-
-    // 渲染 Image 缩放尺寸  
-    function render(src){  
-        var MAX_HEIGHT = 320;  //Image 缩放尺寸 
-        var MAX_WIDTH = 320; 
-        // 创建一个 Image 对象  
-        var image = new Image();  
-        
-        // 绑定 load 事件处理器，加载完成后执行  
-        image.onload = function(){  
-            // 获取 canvas DOM 对象 
-            var canvas = document.getElementById("myCanvas"); 
-
-            // 如果高度超标  
-            if(image.height > MAX_HEIGHT) {  
-                // 宽度等比例缩放 *=  
-                image.width *= MAX_HEIGHT / image.height;  
-                image.height = MAX_HEIGHT;  
-            } 
-            if(image.height > MAX_WIDTH) {  
-                // 宽度等比例缩放 *=  
-                image.width *= MAX_WIDTH / image.width;  
-                image.width = MAX_WIDTH;  
-            }   
-            // 获取 canvas的 2d 环境对象,  
-            // 可以理解Context是管理员，canvas是房子  
-            var ctx = canvas.getContext("2d");  
-            // canvas清屏  
-            ctx.clearRect(0, 0, canvas.width, canvas.height); 
-            canvas.width = image.width;        // 重置canvas宽高  
-            canvas.height = image.height;  
-            // 将图像绘制到canvas上  
-            ctx.drawImage(image, 0, 0, image.width, image.height);  
-            // !!! 注意，image 没有加入到 dom之中  
-            
-         var dataurl = canvas.toDataURL("image/jpeg");  
-         var imagedata =  encodeURIComponent(dataurl); 
-
-         dosuccess(dataurl);//成功后处理
-        };  
-        // 设置src属性，浏览器会自动加载。  
-        // 记住必须先绑定render()事件，才能设置src属性，否则会出同步问题。  
-        image.src = src;
-    };
-
+    
 })(this);
 </script>
-<script src="js/qrcode.js"></script>
-<script src="js/draw.js"></script>
+<!-- 查询search.js -->
 <script src="js/search.js"></script>
+<script src="js/plus.js"></script>
+<script src="js/qrcode.js"></script>
+<script src="js/enroll.js"></script>
 <!-- /页面脚本区 -->
 <script>_submitIvyID();</script>
 </body>
