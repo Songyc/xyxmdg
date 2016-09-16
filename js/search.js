@@ -5,12 +5,12 @@ $.extend(fn, {
             enrollId = $(ele).attr('data-enrollId');
 
         fn.ajax(url, {
-            enrollId: 11
+            enrollId: enrollId
         }, function (data) {
 
-            if(data.code === '1') {
-                var number = $(ele).parent().find('.number');
-                $(number).text( parseFloat($(number).text()) + 1 );
+            if(parseFloat(data.code) === 1) {
+                var number = $(ele).parent('.vote-box').find('.number');
+                $(number).text( data.info.votedNum );
                 $(ele).addClass('cur');
             }
 
@@ -126,7 +126,7 @@ $.extend(fn, {
                 '</div>' +
                 '<div class="info vote-box">' +
                 '<div class="name">' + item.name + '</div>' +
-                '<i class="vote"></i>' +
+                '<i class="vote"' + ' data-enrollId="' + item.enrollId + '"></i>' +
                 '<span class="number">' + item.votedNum + '</span>' +
                 '</div>' +
                 '</div>';
@@ -390,13 +390,16 @@ $(document).delegate('.vote', 'click', function (e) {
     fn.vote(this);
 });
 
-// $(document).delegate('.vote-box', 'click', function (e) {
+// $(document).delegate('.masker .vote-box', 'click', function (e) {
 //     fn.vote(this);
 // });
 
 // 返回
 $('.m-item2 .small-back').click(function () {
     $('.m-item2 .masker').removeClass('cur');
+    var number = $(".masker .vote-box .number").text();
+    $('.mark').parents('.item').find('.number').text(number);
+    $('.mark').removeClass('mark');
     setTimeout(function () {
         $('.m-item2 .masker').hide()
     }, 300);
@@ -428,9 +431,12 @@ $(document).delegate('.sort-search span', 'click', function (e) {
 
 $(document).delegate('.swiper-container2 .item img', 'click', function (e) {
    $('.m-item2 .masker').show();
+   $(this).addClass("mark");
    setTimeout(function (){
         $('.m-item2 .masker').addClass('cur');
    }, 0);
-
+   var number = $(this).parents('.item').find('.number').text();
+   $(".masker .vote-box").attr('data-enrollId', $(this).attr('data-enrollId'));
+   $(".masker .vote-box .number").text(number);
    fn.qrcode.call(this);
 });

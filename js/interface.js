@@ -9,3 +9,4 @@ var online = 'www1.pclady.com/zt/20160906/xyxmdg/index.html',
 	param = 'ad=10829&ad=10828';
 
 var getRankUrl = 'http://192.168.1.6/%E5%8A%A0%E7%8F%AD/x/js/data.js';
+var voteUrl = 'http://192.168.1.6/%E5%8A%A0%E7%8F%AD/x/js/vote.js';
