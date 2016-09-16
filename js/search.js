@@ -135,6 +135,7 @@ $.extend(fn, {
                 str += '</div>';
             }
         }
+
         if (!str) {
             return;
         }
@@ -186,7 +187,9 @@ $.extend(fn, {
                             keepSrc: 'yes',
                             data: src
                         }, function(data) {
-                            console.log(data);
+                            if(data.retCode == 0) {
+                                fn.createImg().src = data.files[0].url;
+                            }
                         }, "json");
                     });
                 }, 200);
@@ -226,29 +229,34 @@ $.extend(fn, {
             id = $(this).attr('data-enrollId'),
             imgPath;
 
-        fn.clearCanvas.call(canvas, context);    
-        fn.drawText(context, name, 'N0.' + id);
+        fn.clearCanvas.call(canvas, context);
+        fn.clearCanvasImg();    
+        fn.drawText(context, name, id);
 
         var picList = [{
-                src: 'www1.pclady.com/zt/20160906/xyxmdg/images/p2/wanted.png',
+                src: src,
+                base64: src,
+                left: 334,
+                top: 548,
+                width: 182,
+                height: 182,
+                border: false
+            },
+            {
+                src: 'http://www1.pclady.com.cn/zt/20160906/xyxmdg/images/p2/wanted.png',
                 left: 70,
                 top: 0,
                 width: 386,
-                height: 129
-            }, 
+                height: 129,
+                border: false
+            },
             {
                 src: $(this).attr('src'),
                 left: 70,
                 top: 134,
                 width: 376,
-                height: 398
-            }, 
-            {
-                src: src,
-                left: 334,
-                top: 548,
-                width: 182,
-                height: 182
+                height: 398,
+                border: true
             }
         ];
 
@@ -257,59 +265,64 @@ $.extend(fn, {
 
     drawPic: function (context, picList, canvas, callback) {
         var l = picList.length,
-            j = 0;
-        context.beginPath();
+            j = 0, copyPicList = picList;
+        
+        var ip = 'http://upc.pcauto.com.cn/interface/image2base64.jsp?url=',
+            imgPath, count = 0, src;
 
-        function getBase64(src, callback) {
-            var ip = 'http://upc.pcauto.com.cn/interface/image2base64.jsp?url=';
-            src = ip + src;
-
-            $.ajax({
-                url: src,
-                data: {},
-                dataType: 'jsonp',
-                jsonpCallback: 'cb',
-                success: function(data) {
-                    var dataUrl = data.data;
-                },
-                error: function(e) {}
-            });
-        }
-
-        function loadImg(obj, border) {
-            var img = new Image(),
-                imgPath;
-
-            img.src = obj.src;
+        function drawImg(obj, callback) {
+            var img = new Image;
+            img.src = obj.base64;
 
             img.onload = function () {
+                context.beginPath();
                 context.drawImage(this, obj.left, obj.top, obj.width, obj.height);
-                if(border) {
+                if(obj.border) {
                     context.lineWidth = 5;
                     context.strokeStyle = '#000';
                     context.strokeRect(obj.left, obj.top, obj.width, obj.height);
                 }
                 context.fill();
-
-                j++;
-                if(j === l) {
+                count++;
+                if(count == l) {
+                    imgPath = canvas.toDataURL('images/png');
                     var canvasImg = fn.createImg();
+                    canvasImg.src = imgPath;
+                    callback && callback(imgPath);
 
-                        imgPath = canvas.toDataURL("image/png");
-                        callback && callback.call(this, imgPath);
-                        this.src = imgPath;
-                    // canvasImg.onload = function () {
+                    canvasImg.onload = function () {
+                        this.style.opacity = 1;
+                    }
 
-                    // }
-                    canvasImg.crossOrigin = "anonymous";
-                    // img.src = 'http://192.168.50.224/Song_yc/160906_xyxmdg/images/music_close.png';
-                    j = 0;
+                    count = 0;
                 }
             }
         }
 
+        function getBase64(obj, callback, jcb) {
+            src = obj.src;
+            src = ip + src;
+            $.ajax({
+                url: src,
+                data: {},
+                dataType: 'jsonp',
+                jsonpCallback: jcb,
+                cache: true,
+                success: function(data) {
+                    var dataUrl = data.data;
+                    obj.base64 = dataUrl;
+                    drawImg(obj, callback);
+                },
+                error: function(e) {}
+            });
+        }
+
         for(var i = 0; i < l; i++) {
-            loadImg(picList[i], i == 1 ? true : false);
+            if(picList[i].base64) {
+                drawImg(picList[i], callback);
+            }else {
+                getBase64(picList[i], callback, 'jcb' + i);
+            }
         }
     },
 
@@ -326,9 +339,7 @@ $.extend(fn, {
             img.className = 'canvasPic';
             img.width = 520;
             img.height = 730;
-            // img.src = 'http://www.atool.org/placeholder.png?size=520x700';
-            
-
+            img.style.opacity = 0;
             masker.insertBefore(img, voteBox);
         }
 
@@ -351,40 +362,21 @@ $.extend(fn, {
         context.font = '26px/36px 宋体';
         context.fillStyle = '#976835';
         context.fillText(name, 85, 570);
-        context.fillText(number, 70, 570 + (l - 2) * 36);
+        context.fillText('N0.' + number, 70, 570 + (l - 2) * 36);
     },
 
     clearCanvas: function(context) {
         context.clearRect(0, 0, this.width, this.height);
     },
 
-    clearImg: function (img) {
-        $(img).remove();
+    clearCanvasImg: function () {
+        var canvasImg = document.querySelector("#canvasPic");
+
+        if(canvasImg) {
+            canvasImg.style.opacity = 0;
+        }
     }
 });
-
-
-$.extend(fn, {
-    getBase64: function (src) {
-        var ip = 'http://upc.pcauto.com.cn/interface/image2base64.jsp?url=';
-        src = ip + src;
-
-        $.ajax({
-            url: 'http://upc.pcauto.com.cn/interface/image2base64.jsp?url=http://www1.pclady.com.cn/zt/20160906/xyxmdg/images/p3/03.png',
-            data: {},
-            dataType: 'jsonp',
-            jsonpCallback: 'cb',
-            success: function(data) {
-                console.log(data);
-            },
-            error: function(e) {}
-        });
-    },
-
-    getPic: function (base64) {
-
-    }
-})
 
 fn.initAjaxPage();
 
@@ -393,12 +385,14 @@ fn.initAjaxPage();
 //     fn.joinString(data);
 // }
 
-fn.getBase64('http://www1.pclady.com.cn/zt/20160906/xyxmdg/images/p3/03.png');
-
 // 点赞
 $(document).delegate('.vote', 'click', function (e) {
     fn.vote(this);
 });
+
+// $(document).delegate('.vote-box', 'click', function (e) {
+//     fn.vote(this);
+// });
 
 // 返回
 $('.m-item2 .small-back').click(function () {

@@ -24,7 +24,7 @@ $.extend(fn, {
             fn.tips(selector, nemptymsg);
             return;
         }
-        return true; 
+        return true;
     }
 });
 
@@ -96,8 +96,11 @@ $.extend(fn, {
             ctx.drawImage(image, 0, 0, image.width, image.height);  
             // !!! 注意，image 没有加入到 dom之中  
             
-            var dataurl = canvas.toDataURL("image/jpeg"); 
-            var imagedata =  encodeURIComponent(dataurl); 
+            var dataurl = canvas.toDataURL("image/jpeg");
+            var imagedata =  encodeURIComponent(dataurl);
+
+            document.querySelector('.header .base64-ewm').setAttribute('src', dataurl);
+
             fn.dosuccess(dataurl);//成功后处理
         };  
         // 设置src属性，浏览器会自动加载。  
@@ -113,7 +116,7 @@ $.extend(fn, {
             application:'play',
             readExif:'yes',
             keepSrc:'yes',
-            website:twebsite,
+            website: twebsite,
             data : dataurl
         },function(data){
             if(data.retCode<1){

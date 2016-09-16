@@ -1,6 +1,6 @@
 专题名称：
 制作时间：160908 ~ 1609
-上线地址：www1.pclady.com/zt/20160906/xyxmdg/index.html?ad=10829&ad=10828
+上线地址：http://www1.pclady.com/zt/20160906/xyxmdg/index.html?ad=10829&ad=10828
 
 上线时间：16
 编辑：谢静霞
@@ -19,3 +19,6 @@ http://192.168.51.173:8090/action/help.jsp
 
 报名接口：http://192.168.51.173:8090/action/enroll.jsp
 投票接口：http://192.168.51.173:8090/action/vote.jsp
+
+http://www1.pclady.com.cn/zt/20160906/xyxmdg/index.html
+http://www1.pclady.com.cn/zt/20160906/xyxmdg/images/p3/03.png
