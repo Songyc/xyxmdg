@@ -156,13 +156,19 @@ $.extend(fn, {
         fn.ajax(url, {type: type}, function(data) {
             fn.joinString(data);
         });
-    },
+    }
 });
 
 // 生成二维码
 $.extend(fn, {
     qrcode: function () {
-        var url = '',
+        var img = $(this).attr('data-cache-src');
+        if(img) {
+            $(fn.createImg()).attr('src', img);
+            return;
+        }
+
+        var url = online,
             id = $(this).attr('data-enrollId'),
             src = $(this).attr('src'),
             self = this;
@@ -188,7 +194,11 @@ $.extend(fn, {
                             data: src
                         }, function(data) {
                             if(data.retCode == 0) {
-                                fn.createImg().src = data.files[0].url;
+                                var url = data.files[0].url;
+                                fn.createImg().src = url;
+                                if($('.mark').length) {
+                                    $('.mark').attr('data-cache-src', url);
+                                }
                             }
                         }, "json");
                     });
@@ -202,6 +212,27 @@ $.extend(fn, {
 
 // Canvas生成图片模块
 $.extend(fn, {
+    cacheWanted: function () {
+        var wanted = window.sessionStorage.getItem('wanted');
+        if(!wanted) {
+            var wantedsrc = 'http://www1.pclady.com.cn/zt/20160906/xyxmdg/images/p2/wanted.png',
+                ip = 'http://upc.pcauto.com.cn/interface/image2base64.jsp?url=';
+
+            $.ajax({
+                url: ip + wantedsrc,
+                data: {},
+                dataType: 'jsonp',
+                jsonpCallback: 'jcbWanted',
+                cache: true,
+                success: function(data) {
+                    var dataUrl = data.data;
+                    window.sessionStorage.setItem('wanted', dataUrl);
+                },
+                error: function(e) {}
+            });
+        }
+    },
+
     createCanvas: function () {
 
         var masker = document.querySelector('.m-item2 .masker-bg'),
@@ -244,6 +275,7 @@ $.extend(fn, {
             },
             {
                 src: 'http://www1.pclady.com.cn/zt/20160906/xyxmdg/images/p2/wanted.png',
+                base64: window.sessionStorage.getItem('wanted'),
                 left: 70,
                 top: 0,
                 width: 386,
@@ -379,11 +411,6 @@ $.extend(fn, {
 });
 
 fn.initAjaxPage();
-
-// jsonp回调函数
-// function enrollist(data) {
-//     fn.joinString(data);
-// }
 
 // 点赞
 $(document).delegate('.vote', 'click', function (e) {
